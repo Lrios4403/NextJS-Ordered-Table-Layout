@@ -1,0 +1,103 @@
+/* The shared grid container. It defines the grid-template-areas for the
+/* whole app. The header and footer span the full width, while the left
+/* column (sidebar, stats and filler) sits beside the content area.
+/*
+/* Anything that should land in one of these areas must be a direct child of
+/* this element, no matter which layout or page file renders it.
+*/
+.grid {
+  min-height: 100vh;
+  display: grid;
+
+  grid-template-areas:
+    "header header"
+    "sidebar content"
+    "stats content"
+    "filler content"
+    "footer footer";
+
+  grid-template-columns: 220px 1fr;
+  /* One size per row: the filler row takes the leftover height, so the
+  /* sidebar and stats stay their natural size at the top of the column. */
+  grid-template-rows: auto auto auto 1fr auto;
+}
+
+/* Now each area gets a class that components can opt into. */
+/* The header will be at the top, spanning both columns. */
+.header {
+  grid-area: header;
+  padding: 24px;
+  background: #263238;
+  color: white;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+/* The sidebar will be on the left, and will have a background color. */
+.sidebar {
+  grid-area: sidebar;
+  padding: 24px;
+  background: #e0e0e0;
+}
+
+.sidebar a {
+  display: block;
+  margin-bottom: 16px;
+  color: #263238;
+}
+
+/* The stats sit under the sidebar. Pages that want stats render their own
+/* element with this class. */
+.stats {
+  grid-area: stats;
+  padding: 24px;
+  background: #e0e0e0;
+  border-top: 1px solid #cfd8dc;
+}
+
+/* The filler has nothing inside. It soaks up the rest of the left column so
+/* the sidebar and stats don't stretch to match the content's height. */
+.filler {
+  grid-area: filler;
+  background: #e0e0e0;
+}
+
+/* The content area will be on the right, and will have a white background.
+/* Each page renders its own <main> with this class. */
+.content {
+  grid-area: content;
+  min-width: 0;
+  padding: 24px;
+  background: white;
+}
+
+/* The footer will be at the bottom, spanning both columns. */
+.footer {
+  grid-area: footer;
+  padding: 20px;
+  background: #263238;
+  color: white;
+  text-align: center;
+}
+
+/* For smaller screens, we will stack the areas vertically. */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "stats"
+      "content"
+      "footer";
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto 1fr auto;
+  }
+
+  /* Once everything stacks there is no leftover height to fill. */
+  .filler {
+    display: none;
+  }
+}

@@ -1,0 +1,35 @@
+/* Styles for the about page's content area. */
+.main h2 {
+  margin-top: 0;
+}
+
+/* The cards wrap onto new lines as the content area gets narrower. */
+.areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.area {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 160px;
+  padding: 12px 16px;
+  background: #eceff1;
+  border-left: 4px solid #263238;
+  border-radius: 4px;
+}
+
+.element {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.file {
+  font-family: monospace;
+  color: #546e7a;
+}

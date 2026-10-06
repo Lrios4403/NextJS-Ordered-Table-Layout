@@ -1,0 +1,21 @@
+/* The page views box in the stats area. Grid placement comes from
+/* lib/styles.module.css. */
+.stats h3 {
+  margin: 0 0 12px;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  padding: 4px 0;
+}
+
+.row span:first-child {
+  flex: 1;
+}
+
+.row span:not(:first-child) {
+  width: 48px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}

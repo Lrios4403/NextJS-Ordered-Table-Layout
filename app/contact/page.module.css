@@ -1,0 +1,9 @@
+/* Styles for the contact page's content area. */
+.main h2 {
+  margin-top: 0;
+}
+
+.email {
+  font-size: 1.25rem;
+  color: #263238;
+}

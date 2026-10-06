@@ -1,0 +1,11 @@
+/* Styles for the home page's content area. The grid placement comes from
+/* lib/styles.module.css; this file only handles how the page looks. */
+.main h2 {
+  margin-top: 0;
+}
+
+.main code {
+  padding: 2px 4px;
+  background: #eceff1;
+  border-radius: 4px;
+}
